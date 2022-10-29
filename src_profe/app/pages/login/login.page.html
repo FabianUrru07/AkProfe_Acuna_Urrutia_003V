@@ -1,0 +1,54 @@
+<ion-header> </ion-header>
+
+<ion-content>
+  <div id="Container">
+    <form id="LoginForm" (ngSubmit)="login()" [formGroup]="credentials">
+      <div class="heading ion-padding">
+        <ion-card class="ima">
+          <img src="assets/logo.png" class="imagen">
+        </ion-card>       
+      </div>
+      <div class="login-form ion-padding">
+        <div class="form-input">
+          <ion-item fill="solid" class="ion-margin-bottom">
+            <ion-input
+              type="email"
+              placeholder="Email"
+              formControlName="email"
+            ></ion-input>
+            <ion-note
+              slot="error"
+              *ngIf="(email.dirty || email.touched) && email.errors"
+              >Email is invalid</ion-note
+            >
+          </ion-item>
+        </div>
+        <div class="form-input">  
+          <ion-item fill="solid" class="ion-margin-bottom">
+            <ion-input
+              type="password"
+              placeholder="Password"
+              formControlName="password"
+            ></ion-input>
+            <ion-note
+              slot="error"
+              *ngIf="(password.dirty || password.touched) && password.errors"
+              >Password needs to be 6 characters</ion-note
+            >
+          </ion-item>
+        </div>
+        <div class="action-button ion-padding">  
+          <ion-button type="submit" expand="block" (click)="saludo()" class="login-button"  [disabled]="!credentials.valid"
+          >Log in</ion-button>
+        </div>
+        <br>
+        <div class="action-button ion-padding">
+          <ion-button  type="submit" expand="block" class="login-button" routerLink="/registro-usuario">
+              Registrarse
+          </ion-button> 
+        </div> 
+      </div>         
+    </form>
+    
+  </div>
+</ion-content>
